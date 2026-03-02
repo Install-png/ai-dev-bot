@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зміна фону</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f0f0f0; /* Початковий колір фону */
+            transition: background-color 0.5s ease;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <button id="changeColorBtn">Змінити колір фону</button>
+
+    <script>
+        const colors = ['#f0f8ff', '#e0ffe0', '#fff0e0', '#ffe0f0', '#e0f0ff', '#f0e0ff', '#ffffe0'];
+        let currentColorIndex = 0;
+        const body = document.body;
+        const changeColorBtn = document.getElementById('changeColorBtn');
+
+        changeColorBtn.addEventListener('click', () => {
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            body.style.backgroundColor = colors[currentColorIndex];
+        });
+    </script>
+</body>
+</html>
